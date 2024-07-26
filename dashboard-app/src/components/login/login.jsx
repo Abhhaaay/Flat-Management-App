@@ -2,8 +2,12 @@ import './login.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import registerCheckInstance from '../../instance/registerCheckInstance';
+import { useDispatch } from 'react-redux';
+import { setUserEmail } from '../../features/auth/authSlice';
 
 const Login = () => {
+  
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -32,6 +36,7 @@ const Login = () => {
       if (response.data === 1) {
         navigate("/admin");
       } else if (response.data === 2) {
+        dispatch(setUserEmail(email));
         navigate("/owner");
       } else if (response.data === 3) {
         navigate("/tenant");

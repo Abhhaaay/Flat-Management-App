@@ -1,14 +1,8 @@
-import { useState } from 'react';
+import Flat from '../flat/flat'
 import './admin.css'
-import { SlArrowDown } from "react-icons/sl";
+
 
 function Admin() {
-
-    const [isVisible, setIsVisible] = useState(false);
-
-    const toggleVisibility = () => {
-        setIsVisible(!isVisible); // Toggle isVisible state
-    };
 
   return (
     <>
@@ -20,29 +14,19 @@ function Admin() {
       <div id="flat-section">
             <div className='complaint-head'>Flats</div>
             <div className='flats-container'>
-                <div className='flat'>
-                    <div className='flat-head'>
-                        <div className='flat-no'>Flat No: 1</div>
-                        <div className='flat-detail-button' onClick={toggleVisibility}><SlArrowDown color="white" size="1.5rem"/></div>
-                    </div>
-                    <div className={`flat-detail-container ${isVisible ? 'visible' : 'hidden'}`}>
-                        <div className="flat-details">
-                            <div>
-                                <div>Arpan</div>
-                                <div>+91 11</div>
-                                <div>arpan@gmail.com</div>
-                            </div>
-                            <div>
-                                <div>Maintenance: $100</div>
-                                <div>Status: paid</div>
-                                <div>
-                                    <input type="button" value="Add" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Flat />
+                <Flat />
             </div>
+      </div>
+      <div id="admin-complaint-section">
+        <div className='complaint-head'>Complaints</div>
+        <div className='complaint-box-container'>
+        <div className='tenant-name'>Tenant1</div>
+          <div className='complaint-box'>
+            <div className='complaint'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, voluptate.</div>
+            <div className='complaint'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, voluptate.</div>
+          </div>
+        </div>
       </div>
     </>
   )

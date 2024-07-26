@@ -29,17 +29,25 @@ public class Owner {
     
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Tenant> tenants;
+
+    @Column(name = "maintenance")
+    private int maintenance;
+
+    @Column(name = "maintenance_status")
+    private String status;
     
     public Owner() {
     }
     
-    public Owner(int flatNo, String name, String emailId, String contactNo, String password, List<Tenant> tenants) {
+    public Owner(int flatNo, String name, String emailId, String contactNo, String password, List<Tenant> tenants, int maintenance, String status) {
         this.flatNo = flatNo;
         this.name = name;
         this.emailId = emailId;
         this.contactNo = contactNo;
         this.password = password;
         this.tenants = tenants;
+        this.maintenance = maintenance;
+        this.status = status;
     }
     
     // Getters and setters
@@ -98,6 +106,22 @@ public class Owner {
 
     public void setTenants(List<Tenant> tenants) {
         this.tenants = tenants;
+    }
+
+    public int getMaintenance() {
+        return maintenance;
+    }
+
+    public void setMaintenance(int maintenance) {
+        this.maintenance = maintenance;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
     
 }

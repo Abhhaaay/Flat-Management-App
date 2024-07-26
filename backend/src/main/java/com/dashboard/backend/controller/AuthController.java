@@ -4,20 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dashboard.backend.dto.CredentialsDto;
-import com.dashboard.backend.dto.LoginResponseDto;
-import com.dashboard.backend.dto.UserDto;
 import com.dashboard.backend.entity.Admin;
 import com.dashboard.backend.entity.Owner;
 import com.dashboard.backend.entity.Tenant;
 import com.dashboard.backend.repository.AdminRepository;
 import com.dashboard.backend.repository.OwnerRepository;
 import com.dashboard.backend.repository.TenantRepository;
-import com.dashboard.backend.service.UserService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -32,9 +27,6 @@ public class AuthController {
 
     @Autowired
     private AdminRepository adminRepository;
-    
-    @Autowired
-    private UserService userService;
     
     @GetMapping("/search/{emailId}")
     public Integer searchUserPresentInData(@PathVariable String emailId){
@@ -52,27 +44,23 @@ public class AuthController {
     }
 
     @GetMapping("/login/{email}/{password}")
-    public LoginResponseDto login(@PathVariable String email, @PathVariable String password) {
-        UserDto userDto = userService.login(new CredentialsDto(email, password));
+    public Integer login(@PathVariable String email, @PathVariable String password) {
         Owner owner = ownerRepository.findByEmailId(email);
         Tenant tenant = tenantRepository.findByEmailId(email);
         Admin admin = adminRepository.findByEmailId(email);
-        Integer num;
         
         if (admin != null && admin.getPassword().equals(password)) {
-            num = 1;
+            return 1;
         }
         else if (owner != null && owner.getPassword().equals(password)) {
-            num = 2;
+            return 2;
         
         } else if (tenant != null && tenant.getPassword().equals(password)) {
-            num = 3;
+            return 3;
 
         } else {
-            num = 4;
+            return 4;
         }
-
-        return new LoginResponseDto(num, userDto.getEmailId(), userDto.getToken());
     }
 
     @GetMapping("/signup/{email}/{finalPass}")
