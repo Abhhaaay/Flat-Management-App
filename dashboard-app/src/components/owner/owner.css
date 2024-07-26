@@ -1,0 +1,84 @@
+#maintenance-section{
+    padding-top: 1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.maintenance-head{
+    font-family: -apple-system,
+    BlinkMacSystemFont;
+    font-size: 3rem;
+    color: rgb(0, 73, 209);
+    font-weight: 500;
+    border-bottom: 1px solid black;
+}
+
+.maintenance-display{
+    padding: 0 2rem;
+    margin-top: 1.5rem;
+}
+
+.maintenance-value{
+    margin-bottom: 1.5rem;
+    font-size: large;
+    font-weight: 500;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.maintenance-button{
+    background-color: cornflowerblue;
+    font-size: 1rem;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 0.2rem;
+    margin-right: 1rem;
+}
+
+#owner-complaint-section{
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.owner-complaint-button{
+    margin-top: 1.5rem;
+    background-color: cornflowerblue;
+    font-size: 1rem;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+#tenants-section{
+    margin: 2rem 0;
+    padding-top: 1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.tenant-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    background-color: rgb(187, 223, 255);
+    padding-right: 2rem;
+}
+
+.tenant-name{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+
+.tenant-remove-button{
+    background-color: black;
+    font-size: 1rem;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 0.2rem;
+}
+

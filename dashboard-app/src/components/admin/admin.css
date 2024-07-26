@@ -1,0 +1,47 @@
+#flat-section{
+    padding-top: 1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.flats-container{
+    padding: 0 4rem;
+    margin-top: 1.5rem;
+}
+
+.flat-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    background-color: rgb(0, 73, 209);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+}
+
+.flat-no{
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: whitesmoke;
+}
+
+.flat-detail-container{
+    padding: 0 6rem;
+    overflow: hidden;
+    height: 0;
+    transition-property: height, padding;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.flat-detail-container.visible {
+    padding: 1rem 6rem;
+    height: auto;
+}
+
+.flat-details{
+    display: flex;
+    justify-content: space-between;
+}
+    
+
